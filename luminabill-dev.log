@@ -1,0 +1,47 @@
+Using launch settings from src\LuminaBill.Web\Properties\launchSettings.json...
+Building...
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (30ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (4ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT EXISTS (
+          SELECT 1
+          FROM "Customers" AS "c")
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "p"."Sku"
+      FROM "Products" AS "p"
+info: Microsoft.Hosting.Lifetime[14]
+      Now listening on: http://localhost:5274
+info: Microsoft.Hosting.Lifetime[0]
+      Application started. Press Ctrl+C to shut down.
+info: Microsoft.Hosting.Lifetime[0]
+      Hosting environment: Development
+info: Microsoft.Hosting.Lifetime[0]
+      Content root path: C:\Users\user\Desktop\LuminaBill\src\LuminaBill.Web
+warn: Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware[3]
+      Failed to determine the https port for redirect.
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "p"."Id", "p"."Name", "p"."Sku", "p"."Unit", "p"."UnitPrice", "p"."TaxRate"
+      FROM "Products" AS "p"
+      WHERE "p"."IsActive"
+      ORDER BY "p"."Name"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (11ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT "i"."Id", "i"."CustomerId", "i"."Discount", "i"."DueDate", "i"."InvoiceNumber", "i"."IssueDate", "i"."Notes", "i"."PaidAmount", "i"."Status", "i"."Terms", "c"."Id", "c"."BillingAddress", "c"."BusinessName", "c"."ContactName", "c"."Email", "c"."IsActive", "c"."Phone", "c"."TaxNumber", "i0"."Id", "i0"."Description", "i0"."Discount", "i0"."InvoiceId", "i0"."ProductId", "i0"."Quantity", "i0"."TaxRate", "i0"."Unit", "i0"."UnitPrice"
+      FROM "Invoices" AS "i"
+      INNER JOIN "Customers" AS "c" ON "i"."CustomerId" = "c"."Id"
+      LEFT JOIN "InvoiceLineItems" AS "i0" ON "i"."Id" = "i0"."InvoiceId"
+      ORDER BY "i"."IssueDate" DESC, "i"."Id", "c"."Id"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM "Customers" AS "c"
+      WHERE "c"."IsActive"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM "Products" AS "p"
+      WHERE "p"."IsActive"
