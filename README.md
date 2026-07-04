@@ -31,24 +31,11 @@ BiLL Here is a modern .NET billing workspace built with ASP.NET Core Razor Pages
 
 The VS Code setup includes `.vscode/launch.json` for debugging at `http://localhost:5274`, `.vscode/tasks.json` for build/test/run, and `global.json` pinned to the installed .NET SDK line.
 
-## Run Locally
-
-```powershell
-cd C:\Users\user\Desktop\LuminaBill
-dotnet restore
-dotnet run --project src\LuminaBill.Web\LuminaBill.Web.csproj
-```
 
 Open the local URL printed by `dotnet run`.
 
 Retail checkout opens at `http://localhost:5274/Checkout`.
 
-## Test
-
-```powershell
-cd C:\Users\user\Desktop\LuminaBill
-dotnet test
-```
 
 ## Project Structure
 
